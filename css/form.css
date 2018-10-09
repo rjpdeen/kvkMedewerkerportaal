@@ -1,0 +1,27 @@
+legend {
+	color: white;
+}
+
+input {
+ 	color: blue;
+ 	font-size: 14px;
+  	margin-bottom: 10px;
+}
+button {
+  font-size: 14px;
+  background-color: grey;
+  margin-right: 10px;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  color: black;
+  border: 2px red solid;
+}
+
+span.field_value {
+	color:#34ff34;
+}

@@ -1,0 +1,27 @@
+<fieldset>
+  <legend>Taak: {{workItemCtrl.taskName}}</legend>
+  <form name="regForm" novalidate>
+    <fieldset>
+      <legend>Aangever</legend>
+      <div>Naam: <span class="field_value">Demitri Achtnaaf (M)</span></div>
+      <div>Geboortedatum: <span class="field_value">16-12-1950 (68 jaar)</span></div>
+      <div>BSN: <span class="field_value">300.111.459</span></div>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Archiveren</legend>
+      <button>Archiveer opgave</button>
+    </fieldset>
+    </br>
+    <button ng-disabled="regForm.$invalid" ng-click="workItemCtrl.submit()">Gereed</button>
+      <span><button ng-click="workItemCtrl.nexttask()">Volgende taak</button></span>
+      <span><button ui-sref="home.work-list">Naar werkvoorraad</button></span>  
+      <span> {{workItemCtrl.nexttask_text}} <button ng-show="workItemCtrl.nexttask_text != null" ui-sref="home.work-item({
+                    taskName: workItemCtrl.taskName_next,
+                    processInstanceId: workItemCtrl.processInstanceId_next,
+                    taskId: workItemCtrl.taskId_next,
+                    taskDefKey: workItemCtrl.taskDefKey_next })">Pak op</button></span>
+      </br></br>
+      {{workItemCtrl.result_text}}
+  </form>
+</fieldset>

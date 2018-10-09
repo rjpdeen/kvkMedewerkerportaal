@@ -1,0 +1,96 @@
+<fieldset>
+  <h2>Taak: {{workItemCtrl.taskName}} (Kan dat?)</h2>
+  <form name="regForm" novalidate>
+    <fieldset>
+      <legend>Aangever</legend>
+      <div>Naam: <span class="field_value">Demitri Achtnaaf (M)</span></div>
+      <div>Geboortedatum: <span class="field_value">16-12-1950 (68 jaar)</span></div>
+      <div>BSN: <span class="field_value">300.111.459</span></div>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Controle</legend>
+      <table class="tg" style="undefined;table-layout: fixed; width: 550px">
+      <colgroup>
+      <col style="width: 150px">
+      <col style="width: 230px">
+      <col style="width: 170px">
+      </colgroup>
+        <tr>
+          <th class="tg-header_value"></th>
+          <th class="tg-header_value">Huidige situatie handelsregister</th>
+          <th class="tg-header_value">Situatie na 12-juli-2018</th>
+        </tr>
+        <tr>
+          <td class="tg-header_value">Telefoonnummer 1</td>
+          <td class="tg-old_value">034-206548788</td>
+          <td class="tg-new_value">020-785439348</td>
+        </tr>
+        <tr>
+          <td class="tg-header_value">Faxnummer 1</td>
+          <td class="tg-old_value">034-206548782</td>
+          <td class="tg-new_value">[Leeg]<br></td>
+        </tr>
+        <tr>
+          <td class="tg-header_value">Email 1</td>
+          <td class="tg-old_value">info@hot-or-not.nl</td>
+          <td class="tg-new_value">info@beautyful.nl</td>
+        </tr>
+        <tr>
+          <td class="tg-header_value">Email 2</td>
+          <td class="tg-old_value">[Leeg]</td>
+          <td class="tg-new_value">afspraak@beautyful.nl</td>
+        </tr>
+        <tr>
+          <td class="tg-header_value">Website 2 </td>
+          <td class="tg-old_value">[Leeg]</td>
+          <td class="tg-new_value">www.beautyful.nl</td>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Niet te verwerken gegevens</legend>
+      <table class="tg" style="undefined;table-layout: fixed; width: 550px">
+      <colgroup>
+      <col style="width: 125px">
+      <col style="width: 175px">
+      <col style="width: 125px">
+      <col style="width: 125px">
+      </colgroup>
+        <tr>
+          <th class="tg-header_value">Email</th>
+          <th class="tg-new_value">info@hot-or-not.nl</th>
+          <th class="tg-new_value">12-juli-2018</th>
+          <th class="tg-header_value">Vervallen</th>
+        </tr>
+        <tr>
+          <th class="tg-header_value">Website</th>
+          <th class="tg-new_value">www.hot/or/not.com</th>
+          <th class="tg-new_value">12-juli-2018</th>
+          <th class="tg-header_value">Toevoegen</th>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Vul de beoordeling in</legend>
+      <input type="radio" ng-model="workItemCtrl.result['beoordeling']" name="beoordeling" value="goedgekeurd" required checked> Goedkeuren<br>
+      <input type="radio" ng-model="workItemCtrl.result['beoordeling']" name="beoordeling" value="afgekeurd" required> Afkeuren<br>
+      <input type="radio" ng-model="workItemCtrl.result['beoordeling']" name="beoordeling" value="aanvulling" required> Aanvullende informatie<br>
+      <span ng-if="regForm.beoordeling.$error.required && regForm.beoordeling.$touched">beoordeling moet een waarde hebben.
+      </span>
+    </fieldset>
+    <br>
+    <button ng-disabled="regForm.$invalid" ng-click="workItemCtrl.submit()">Gereed</button>
+    <span><button ng-disabled="workItemCtrl.result == {}" ng-click="workItemCtrl.nexttask()">Volgende taak</button></span>
+    <span><button ui-sref="home.work-list">Naar werkvoorraad</button></span>  
+    <span> {{workItemCtrl.nexttask_text}} <button ng-show="workItemCtrl.nexttask_text != null" ui-sref="home.work-item({
+                    taskName: workItemCtrl.taskName_next,
+                    processInstanceId: workItemCtrl.processInstanceId_next,
+                    taskId: workItemCtrl.taskId_next,
+                    taskDefKey: workItemCtrl.taskDefKey_next })">Pak op</button></span>
+      </br></br>
+      {{workItemCtrl.result_text}} 
+  </form>
+</fieldset>

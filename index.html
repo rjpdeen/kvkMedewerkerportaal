@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KvK Medewerkerportaal</title>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/portaal.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/table.css">
+  </head>
+<body ng-app="medewerkerportaal" ng-strict-di>
+   <header>
+      <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="index.html" class="pull-left visible-md visible-lg">
+              <div id="logo-img" alt="Logo image"></div>
+            </a>
+
+            <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+<!--               <span class="icon-bar"></span>
+              <span class="icon-bar"></span> -->
+            </button>
+          </div>
+
+           <div id="collapsable-nav" class="collapse navbar-collapse">
+            <ul id="nav-list" class="nav navbar-nav navbar-right">
+              <li id="navHomeButton" class="visible-xs">
+                <a ui-sref="home">
+                  <span class="glyphicon glyphicon-home"></span> Home</a>
+              </li>
+              <li id="navMenuButton" ui-sref-active="active">
+                <a ui-sref="home.work-list">
+                  <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Inbox</a>
+              </li>
+              <li id="navMenuButton" ui-sref-active="active">
+                <a ui-sref="home.work-create">
+                  <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> Nieuw dossier</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> 
+    </header>
+    <ui-view>
+      <div class="text-center initial-loading">
+        <h2>Loading Site...</h2>
+      </div>
+    </ui-view>
+
+     <!-- Libs -->
+    <script src="lib/ajax-utils.js"></script>
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Medewerkerportaal  Module -->
+    <script src="src/medewerkerportaal.module.js"></script>
+    <script src="src/routes.js"></script>
+    <script src="src/home/home.controller.js"></script>
+    <script src="src/home/work-create/work-create.controller.js"></script>
+    <script src="src/home/work-list/work-list.controller.js"></script>
+    <script src="src/home/work-item/work-item.controller.js"></script>
+
+
+    <!-- Common  Module -->
+    <script src="src/common/common.module.js"></script>
+    <script src="src/common/common.service.js"></script>
+    <script src="src/common/soap.service.js"></script>
+    <script src="src/common/loading/loading.component.js"></script>
+    <script src="src/common/loading/loading.interceptor.js"></script>
+
+</body>
+</html>

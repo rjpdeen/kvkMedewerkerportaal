@@ -1,0 +1,24 @@
+<fieldset>
+  <legend>Taak: {{workItemCtrl.taskName}}</legend>
+  <form name="regForm" novalidate>
+    <div>Vul het oordeel in.</div>
+    <input type="text" name="Oordeel" placeholder="Enter decision."
+      ng-model="workItemCtrl.result['Oordeel']"
+      required>
+      <span
+        ng-if="regForm.Oordeel.$error.required && regForm.Oordeel.$touched">
+        Oordeel must have a value
+      </span>
+      </br>
+    <button ng-disabled="regForm.$invalid" ng-click="workItemCtrl.submit()">Gereed</button>
+      <span><button ng-click="workItemCtrl.nexttask()">Volgende taak</button></span>
+      <span><button ui-sref="home.work-list">Naar work-list</button></span>  
+      <span> {{workItemCtrl.nexttask_text}} <button ng-show="workItemCtrl.nexttask_text != null" ui-sref="home.work-item({
+                    taskName: workItemCtrl.taskName_next,
+                    processInstanceId: workItemCtrl.processInstanceId_next,
+                    taskId: workItemCtrl.taskId_next,
+                    taskDefKey: workItemCtrl.taskDefKey_next })">Pak op</button></span>
+      </br></br>
+      {{workItemCtrl.result_text}}
+  </form>
+</fieldset>

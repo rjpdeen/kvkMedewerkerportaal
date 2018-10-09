@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th>Opgave id</th>
+      <th>Taak id</th>
+      <!--<th>Task def id</th>-->
+      <th>Taak</th>
+      <th>Behandelaar</th>
+      <th>Aanmaakdatum</th>
+    </tr>
+  </thead>
+
+  <tbody ng-repeat="t in workListCtrl.range">
+      <tr>
+      	<td>{{workListCtrl.gegevens[t].opgave_id}}</td>
+      	<td>{{workListCtrl.gegevens[t].id}}</td>
+        <!--<td>{{workListCtrl.gegevens[t].taskDefinitionKey}}</td>-->
+      	<td>{{workListCtrl.gegevens[t].name}}</td>
+        <td>{{workListCtrl.gegevens[t].assignee}}</td>
+        <td>{{workListCtrl.gegevens[t].created}}</td>
+        <!-- <td><button ui-sref="home.work-item">Open</button></td> -->
+        <td><button ui-sref="home.work-item({
+        						taskName: workListCtrl.gegevens[t].name, 
+        						processInstanceId: workListCtrl.gegevens[t].processInstanceId,
+        						taskId: workListCtrl.gegevens[t].id,
+                    taskDefKey: workListCtrl.gegevens[t].taskDefinitionKey })">Open</button></td>
+      </tr>
+  </tbody>
+</table>
+{{workListCtrl.result_text}}
+

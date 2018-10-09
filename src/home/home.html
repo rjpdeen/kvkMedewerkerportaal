@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="login">
+		<form name="Filter" novalidate>
+			<input ng-model="homeCtrl.login" required type="text" name="login" placeholder="Login account" size="20">
+			<input ng-model="homeCtrl.processId" required type="text" name="ProcessId" placeholder="Enter process id" size="35">
+			<span><button ng-click="homeCtrl.saveAll()" ui-sref="home">Okay</button></span>
+			<br>
+			
+			<span ng-if="Filter.ProcessId.$error.required && Filter.ProcessId.$touched">Processid is required.</span>
+		</form>
+	</div>
+  	<ui-view>
+	</ui-view>
+</div>
